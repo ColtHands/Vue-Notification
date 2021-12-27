@@ -8,7 +8,7 @@
 export default {
     methods: {
         clickHandle() {
-            this.$test('asd')
+            this.$notify({ message: 'asd', time: 30000 })
         }
     }
 }

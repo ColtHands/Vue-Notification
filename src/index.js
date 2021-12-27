@@ -1,22 +1,21 @@
-import TestComponent from './Test.vue'
+import Vuex from 'vuex'
+import NotifyComponent from './Notify.vue'
 import store from './store.js'
 
-const Test = {
+export default {
     install(Vue, args = {}) {
         if (this.installed) { return }
-
         this.installed = true
+        Vue.use(Vuex)
+        Vue.store = store
 
-        Vue.component('test', TestComponent)
+        Vue.component('notify', NotifyComponent)
 
-        const Test = params => {
-            store.dispatch('test', params)
-            console.log('test params', params)
+        const Notify = params => {
+            store.dispatch('notify', params)
         }
 
-        Vue.prototype['$test'] = Test
-        Vue['test'] = Test
+        Vue.prototype['$notify'] = Notify
+        Vue['notify'] = Notify
     }
 }
-
-export default Test
