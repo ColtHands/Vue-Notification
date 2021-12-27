@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        notifications: [{message: 'asd'}]
+        notifications: []
     },
     mutations: {
         addNewNotification(state, notifiaction) {
@@ -18,8 +18,6 @@ export default new Vuex.Store({
     },
     actions: {
         notify({ commit }, { message, time }) {
-            console.log("NOTIFYING!")
-
             const id = uuidV4()
 
             commit('addNewNotification', { message, id })

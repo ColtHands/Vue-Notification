@@ -1,18 +1,18 @@
 <template>
-    <div class="notify">
+    <div class="notifications">
         <transition-group name="list" tag="div">
-            <message v-for="e in notifications" :key="e.id" :message="e.message" @click.native="removeNotification(e.id)"/>
+            <notificationMessage v-for="e in notifications" :key="e.id" :message="e.message" @click.native="removeNotification(e.id)"/>
         </transition-group>
     </div>
 </template>
 
 <script>
-import message from './notificationMessage.vue'
+import notificationMessage from './notificationMessage.vue'
 import store from './store.js'
 
 export default {
     components: {
-        message
+        notificationMessage
     },
     methods: {
         ntf() {
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-.notify 
+.notifications 
     position: fixed
     top: 25px
     width: 300px
@@ -39,21 +39,19 @@ export default {
     z-index: 12345
     font-family: Helvetica
 
-// .list-item
-//     display: inline-block
-//     margin-right: 10px
-
-.list-enter-active,
-.list-leave-active 
-    transition: all 1s
+.notification
+    transition: all 0.3s
 
 .list-enter,
 .list-leave-to
     opacity: 0
 
 .list-enter
-    transform: translateY(30px)
+    transform: translateY(50px)
 
 .list-leave-to
-    transform: translateY(-30px)
+    transform: translateY(-50px)
+
+.list-leave-active
+    position: absolute
 </style>
