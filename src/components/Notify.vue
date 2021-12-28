@@ -8,18 +8,16 @@
 
 <script>
 import notificationMessage from './notificationMessage.vue'
-import store from './store.js'
+import { REMOVE_NOTIFICATION_BY_ID } from "./../actionTypes.js"
+import store from './../store.js'
 
 export default {
     components: {
         notificationMessage
     },
     methods: {
-        ntf() {
-            store.dispatch('notify', { message: 'wat', time: 3000 })
-        },
         removeNotification(id) {
-            store.commit('removeNotificationById', id)
+            store.dispatch(REMOVE_NOTIFICATION_BY_ID, id)
         }
     },
     computed: {

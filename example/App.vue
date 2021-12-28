@@ -8,7 +8,7 @@
 export default {
     methods: {
         clickHandle() {
-            this.$notify({ message: 'asd', time: 30000 })
+            this.$notify('asd', { time: 30000 })
         }
     }
 }
