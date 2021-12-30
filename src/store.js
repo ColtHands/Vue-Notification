@@ -29,7 +29,7 @@ export default new Vuex.Store({
     },
     actions: {
         [SET_DEFAULT_OPTIONS]({ commit }, options) {
-            // TODO check for option object
+            // TODO check options object for consistency
             commit('setDefaultOptions', options)
         },
         [NOTIFY]({ commit }, { message, options }) {

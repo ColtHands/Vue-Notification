@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import VueTestPackage from './../src/index.js'
+import VueNotify from './../src/index.js'
 import App from './App.vue'
 
-Vue.use(VueTestPackage, {
+Vue.use(VueNotify, {
     defaultPosition: 'top-center',
     defaultStyle: 'basic'
 })
