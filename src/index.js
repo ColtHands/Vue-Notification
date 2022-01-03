@@ -11,7 +11,6 @@ export default {
         if (this.installed) { return }
         this.installed = true
 
-        // NOTE setup params sending into vuex
         store.dispatch(SET_DEFAULT_OPTIONS, options)
 
         Vue.component('notify', NotifyComponent)

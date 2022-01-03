@@ -1,9 +1,11 @@
 import { v4 as uuidV4 } from 'uuid'
 import Vue from 'vue'
 import Vuex from 'vuex'
+import validateOptions from './validateOptions.js'
 import {
     SET_DEFAULT_OPTIONS,
-    NOTIFY, REMOVE_NOTIFICATION_BY_ID
+    NOTIFY,
+    REMOVE_NOTIFICATION_BY_ID
 } from './actionTypes.js'
 
 Vue.use(Vuex)
@@ -11,9 +13,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         notifications: [],
-        options: {
-            defaultPosition: 'top-center',
-            defaultType: 'basic'
+        defaultOptions: {
+            position: 'top-center',
+            style: 'basic'
         }
     },
     mutations: {
@@ -29,18 +31,30 @@ export default new Vuex.Store({
     },
     actions: {
         [SET_DEFAULT_OPTIONS]({ commit }, options) {
-            // TODO check options object for consistency
-            commit('setDefaultOptions', options)
+            if(validateOptions(options)) {
+                commit('setDefaultOptions', options)
+            } else {
+                console.warn('Vue-Notify: there are problems with your options config', validateOptions.errors)
+                // validateOptions.errors.forEach(e => { console.warn(e.message) })
+            }
         },
         [NOTIFY]({ commit }, { message, options }) {
-            const id = uuidV4()
-            const { time } = options
+            if(validateOptions(options)) {
+                const id = uuidV4()
 
-            commit('addNewNotification', { message, id })
-
-            setTimeout(() => {
-                commit('removeNotificationById', id)
-            }, time || 3000)
+                const { time } = options
+    
+                commit('addNewNotification', { message, id })
+    
+                console.log('notifying', message, options)
+    
+                setTimeout(() => {
+                    commit('removeNotificationById', id)
+                }, time || 3000)
+            } else {
+                console.warn('Vue-Notify: there are problems with your options config', validateOptions.errors)
+                // validateOptions.errors.forEach(e => { console.warn(e.message) })
+            }
         },
         [REMOVE_NOTIFICATION_BY_ID]({ commit }, id) {
             commit('removeNotificationById', id)
