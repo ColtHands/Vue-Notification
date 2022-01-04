@@ -4,8 +4,7 @@
 
 * Top / left / right / bottom positions
 * Multiple styles (danger, blue, black)
-* Multiple style types UIkit like / Material like / unique
-* Default `Vue.use()` setup
+* Multiple style types: UIkit like / Material like / unique, maybe user defined styles
 
 # Setup
 
