@@ -13,7 +13,11 @@ export default {
         closeIcon
     },
     props: {
-        message: String
+        message: {
+            type: String,
+            required: true
+        },
+        styleType: String
     }
 }
 </script>

@@ -1,8 +1,20 @@
 <template>
-    <div class="notifications">
-        <transition-group name="list" tag="div">
-            <notificationMessage v-for="e in notifications" :key="e.id" :message="e.message" @click.native="removeNotification(e.id)"/>
-        </transition-group>
+    <div>
+        <div
+            :class="['notifications', `notifications__${position}`]"
+            v-for="(position, index) in eachUniqueActivePosition"
+            :key="index"
+        >
+            <transition-group name="list" tag="div">
+                <notificationMessage
+                    v-for="e in notifications"
+                    :key="e.id"
+                    @click.native="removeNotification(e.id)"
+                    :message="e.message"
+                    :styleType="e.style"
+                />
+            </transition-group>
+        </div>
     </div>
 </template>
 
@@ -22,23 +34,54 @@ export default {
     },
     computed: {
         notifications() {
-            return store.state.notifications
+            return store.getters.notifications
+        },
+        eachUniqueActivePosition() {
+            return store.getters.eachUniqueActivePosition
         }
     }
 }
 </script>
 
 <style lang="sass" scoped>
+=top
+    top: 25px
+=bottom
+    bottom: 25px
+=left
+    left: 25px
+=right
+    right: 25px
+=center
+    color: blue
+    left: calc(50% - 150px)
+
 .notifications 
     position: fixed
-    top: 25px
     width: 300px
-    left: calc(50% - 150px)
     z-index: 12345
     font-family: Helvetica
+    &__top-left
+        +top
+        +left
+    &__top-center
+        +top
+        +center
+    &__top-right
+        +top
+        +right
+    &__bottom-left
+        +bottom
+        +left
+    &__bottom-center
+        +bottom
+        +center
+    &__bottom-right
+        +bottom
+        +right
 
 .notification
-    transition: all 0.3s
+    transition: all 0.15s
 
 .list-enter,
 .list-leave-to

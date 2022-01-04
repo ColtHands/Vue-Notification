@@ -18,6 +18,10 @@ export default new Vuex.Store({
             style: 'basic'
         }
     },
+    getters: {
+        notifications: state => state.notifications.map(e => ({ ...state.defaultOptions, ...e})),
+        eachUniqueActivePosition: (_, { notifications }) => [...new Set(notifications.map(e => e.position))]
+    },
     mutations: {
         addNewNotification(state, notifiaction) {
             state.notifications.push(notifiaction)
@@ -35,16 +39,19 @@ export default new Vuex.Store({
                 commit('setDefaultOptions', options)
             } else {
                 console.warn('Vue-Notify: there are problems with your options config', validateOptions.errors)
-                // validateOptions.errors.forEach(e => { console.warn(e.message) })
             }
         },
         [NOTIFY]({ commit }, { message, options }) {
             if(validateOptions(options)) {
                 const id = uuidV4()
 
-                const { time } = options
+                const {
+                    time,
+                    position,
+                    style
+                } = options
     
-                commit('addNewNotification', { message, id })
+                commit('addNewNotification', { message, id, position, style })
     
                 console.log('notifying', message, options)
     
@@ -53,7 +60,6 @@ export default new Vuex.Store({
                 }, time || 3000)
             } else {
                 console.warn('Vue-Notify: there are problems with your options config', validateOptions.errors)
-                // validateOptions.errors.forEach(e => { console.warn(e.message) })
             }
         },
         [REMOVE_NOTIFICATION_BY_ID]({ commit }, id) {

@@ -2,18 +2,26 @@ import Ajv from 'ajv'
 const ajv = new Ajv()
 
 ajv.addKeyword({
-    keyword: 'position',
+    keyword: 'availibleValues',
     type: 'string',
-    validat: (schema, data) => {
-        console.log("AJV ctx", schema, data)
+    validate: (arrayOfValues, keyword) => arrayOfValues.includes(keyword),
+    error: {
+        message: 'Must contain any of availible values',
+        params: ctx => ctx.schema
     }
 })
 
 const optionsSchema = {
     type: 'object',
     properties: {
-        position: { type: 'string' },
-        style: { type: 'string' },
+        position: {
+            type: 'string',
+            availibleValues: ['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right']
+        },
+        style: {
+            type: 'string',
+            availibleValues: ['default', 'basic', 'primary', 'secondary', 'success', 'info', 'warning', 'danger', 'dark']
+        },
         time: { type: 'integer' }
     },
     additionalProperties: false
