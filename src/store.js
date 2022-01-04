@@ -19,6 +19,7 @@ export default new Vuex.Store({
         }
     },
     getters: {
+        // TODO Split notifications for each position
         notifications: state => state.notifications.map(e => ({ ...state.defaultOptions, ...e})),
         eachUniqueActivePosition: (_, { notifications }) => [...new Set(notifications.map(e => e.position))]
     },

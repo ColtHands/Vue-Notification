@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- TODO Split into different components for each position -->
         <div
             :class="['notifications', `notifications__${position}`]"
             v-for="(position, index) in eachUniqueActivePosition"
