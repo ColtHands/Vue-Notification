@@ -8,7 +8,7 @@
         >
             <transition-group name="list" tag="div">
                 <notificationMessage
-                    v-for="e in notifications"
+                    v-for="e in notifications.filter(e => e.position == position)"
                     :key="e.id"
                     @click.native="removeNotification(e.id)"
                     :message="e.message"

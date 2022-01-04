@@ -1,6 +1,6 @@
 <template>
-    <div class="notification">
-        <closeIcon class="notification__close lnr lnr-cross"/>
+    <div :class="['notification', `notification_${styleType}`]">
+        <closeIcon class="notification__close"/>
         <span class="notification__message">{{message}}</span>
     </div>
 </template>
@@ -23,13 +23,22 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-$bgc: #fff1f0
-$color: #d85030
+=default
+=basic
+=primary
+=secondary
+=success
+=info
+=warning
+=danger
+    color: #fff
+    background-color: #d9534f
+    border-color: #d43f3a
+    &__close
+        color: #fff
+=dark
 
 .notification
-    background-color: $bgc
-    border: 1px solid darken($bgc, 10%)
-    color: $color
     width: 100%
     border-radius: 5px
     padding: 15px 10px
@@ -51,8 +60,25 @@ $color: #d85030
         width: 13px
         font-size: 13px
         height: auto
-        color: red
     &:hover
         .notification__close
             visibility: visible
+    &_default
+        +default
+    &_basic
+        +basic
+    &_primary
+        +primary
+    &_secondary
+        +secondary
+    &_success
+        +success
+    &_info
+        +info
+    &_warning
+        +warning
+    &_danger
+        +danger
+    &_dark
+        +dark
 </style>

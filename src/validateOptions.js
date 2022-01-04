@@ -22,7 +22,9 @@ const optionsSchema = {
             type: 'string',
             availibleValues: ['default', 'basic', 'primary', 'secondary', 'success', 'info', 'warning', 'danger', 'dark']
         },
-        time: { type: 'integer' }
+        time: {
+            type: 'integer'
+        }
     },
     additionalProperties: false
 }

@@ -15,11 +15,11 @@ export default new Vuex.Store({
         notifications: [],
         defaultOptions: {
             position: 'top-center',
-            style: 'basic'
+            style: 'basic',
+            time: 3000
         }
     },
     getters: {
-        // TODO Split notifications for each position
         notifications: state => state.notifications.map(e => ({ ...state.defaultOptions, ...e})),
         eachUniqueActivePosition: (_, { notifications }) => [...new Set(notifications.map(e => e.position))]
     },
@@ -42,23 +42,21 @@ export default new Vuex.Store({
                 console.warn('Vue-Notify: there are problems with your options config', validateOptions.errors)
             }
         },
-        [NOTIFY]({ commit }, { message, options }) {
+        [NOTIFY]({ commit, state }, { message, options }) {
             if(validateOptions(options)) {
                 const id = uuidV4()
-
+    
                 const {
-                    time,
-                    position,
-                    style
+                    time = state.defaultOptions.time,
+                    position = state.defaultOptions.position,
+                    style = state.defaultOptions.style
                 } = options
     
                 commit('addNewNotification', { message, id, position, style })
     
-                console.log('notifying', message, options)
-    
                 setTimeout(() => {
                     commit('removeNotificationById', id)
-                }, time || 3000)
+                }, time || state.defaultOptions.time)
             } else {
                 console.warn('Vue-Notify: there are problems with your options config', validateOptions.errors)
             }

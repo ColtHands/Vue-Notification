@@ -2,9 +2,10 @@
 
 ## TODO / Roadmap
 
-* Top / left / right / bottom positions
+<!-- * Top / left / right / bottom positions -->
 * Multiple styles (danger, blue, black)
 * Multiple style types: UIkit like / Material like / unique, maybe user defined styles
+* Split everything to styled components for class naming safety
 
 # Setup
 
