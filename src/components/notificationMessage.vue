@@ -23,19 +23,29 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+=light-text
+    color: #fff
+    .notification__close
+        fill: #fff
+=dark-text
+    color: #333
+    .notification__close
+        fill: #333
+
 =default
 =basic
+    background-color: #efefef
+    border-color: #efefef
+    +dark-text
 =primary
 =secondary
 =success
 =info
 =warning
 =danger
-    color: #fff
     background-color: #d9534f
     border-color: #d43f3a
-    &__close
-        color: #fff
+    +light-text
 =dark
 
 .notification
@@ -49,7 +59,7 @@ export default {
     &__close
         vertical-align: top
     &__message
-        font-size: 12px
+        font-size: 14px
     &__close
         visibility: hidden
         position: relative
@@ -60,6 +70,7 @@ export default {
         width: 13px
         font-size: 13px
         height: auto
+        fill: #fff
     &:hover
         .notification__close
             visibility: visible
