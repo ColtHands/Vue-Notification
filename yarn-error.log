@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\f1ks3\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js publish --tag beta
+  C:\Program Files\nodejs\node.exe C:\Users\f1ks3\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js publish
 
 PATH: 
   C:\Users\f1ks3\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\f1ks3\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Python39\Scripts;C:\Python39;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\PuTTY;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\MongoDB\Server\4.4\bin;C:\Users\f1ks3\AppData\Local\Microsoft\WindowsApps;C:\Users\f1ks3\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\f1ks3\AppData\Roaming\npm;C:\Program Files (x86)\GnuWin32\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
@@ -28,16 +28,18 @@ Trace:
 
 npm manifest: 
   {
-    "name": "vue-notification",
+    "name": "v-notify",
     "author": "ColdHands",
     "version": "1.0.1",
     "description": "Vue notification",
     "main": "./dist/bundle.js",
     "license": "MIT",
     "publishConfig": {
+      "gitRegistry": "https://npm.pkg.github.com/@colthands",
+      "npmRegistry": "https://registry.npmjs.org/",
       "registry": "https://npm.pkg.github.com/@colthands"
     },
-    "tags": [
+    "keywords": [
       "vue-notification",
       "notify",
       "vue notify",

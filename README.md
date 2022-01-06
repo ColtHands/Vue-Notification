@@ -1,23 +1,57 @@
 # Vue Notification Package
 
-# Setup
-
 ## Install the package
 
-`yarn add ...`
+`yarn add v-notify`
 
 or
 
-`npm i -d ...`
+`npm install v-notify`
 
-## Setup the package
-#### This is the full setup config options
+## 1. Setup the package
+```javascript
+import VueNotify from 'v-notify'
 
-```js
-Vue.use(VueTestPackage, {
+Vue.use(VueNotify, {
     defaultPosition: 'top-center',
-    defaultStyle: 'default'
+    defaultStyle: 'info',
+    time: 3000
 })
+
+// On this stage you define your default options, you also can skip them
+
+Vue.use(VueNotify)
+```
+
+## 2. Add `<Notify></Notify>` component inside your vue instance
+```html
+<body>
+    <div id="app">
+        <App></App>
+        <Notify></Notify>
+    </div>
+    <script src="bundle.js"></script>
+</body>
+```
+## 3. Use `$notify` to notify
+```js
+<template>
+    <button @click="notify()">dark style</button>
+</template>
+
+<script>
+export default {
+    methods: {
+        notify(position, style, time) {
+            this.$notify('Hello world', {
+                time: 3000,
+                position: 'top-center',
+                style: 'basic
+            })
+        }
+    }
+}
+</script>
 ```
 
 ## defaultPosition

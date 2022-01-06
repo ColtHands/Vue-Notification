@@ -1,5 +1,5 @@
 {
-  "name": "vue-notification",
+  "name": "v-notify",
   "author": "ColdHands",
   "version": "1.0.1",
   "description": "Vue notification",
@@ -7,7 +7,8 @@
   "license": "MIT",
   "publishConfig": {
     "gitRegistry": "https://npm.pkg.github.com/@colthands",
-    "npmRegistry": "https://registry.npmjs.org/"
+    "npmRegistry": "https://registry.npmjs.org/",
+    "registry": "https://npm.pkg.github.com/@colthands"
   },
   "keywords": [
     "vue-notification",
