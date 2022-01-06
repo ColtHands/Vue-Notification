@@ -9,7 +9,7 @@
     "gitRegistry": "https://npm.pkg.github.com/@colthands",
     "npmRegistry": "https://registry.npmjs.org/"
   },
-  "tags": [
+  "keywords": [
     "vue-notification",
     "notify",
     "vue notify",
