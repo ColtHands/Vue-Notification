@@ -8,7 +8,7 @@
   "publishConfig": {
     "gitRegistry": "https://npm.pkg.github.com/@colthands",
     "npmRegistry": "https://registry.npmjs.org/",
-    "registry": "https://npm.pkg.github.com/@colthands"
+    "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
     "vue-notification",

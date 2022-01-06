@@ -10,6 +10,7 @@ or
 
 ## 1. Setup the package
 ```javascript
+import Vue from 'vue'
 import VueNotify from 'v-notify'
 
 Vue.use(VueNotify, {
@@ -34,11 +35,13 @@ Vue.use(VueNotify)
 </body>
 ```
 ## 3. Use `$notify` to notify
-```js
+```html
 <template>
     <button @click="notify()">dark style</button>
 </template>
+```
 
+```js
 <script>
 export default {
     methods: {
@@ -46,15 +49,20 @@ export default {
             this.$notify('Hello world', {
                 time: 3000,
                 position: 'top-center',
-                style: 'basic
+                style: 'basic'
             })
+            // or you can use it without options
+            // in that case default options set above would be applied
+            this.$notify('Hello world')
         }
     }
 }
 </script>
 ```
 
-## defaultPosition
+## Reference
+
+### **defaultPosition**
 * Type: `string`
 * Default: `'top-center'`
 * Availible options:
@@ -63,12 +71,13 @@ export default {
 
     `'bottom-left'` | `'bottom-center'` | `'bottom-right'`
 * NOTE _Options are intentionally explicit to avoid confusion for new developers and legacy support, so there are no shorthand syntax like `'tc'` for `'top-center'`_
-## defaultStyle
+### **defaultStyle**
 * Type: `string`
 * Default: `'basic'`
 * Availible options: `'default'` | `'basic'` | `'primary'` | `'secondary'` | `'success'` | `'info'` | `'warning'` | `'danger'` | `'dark'`
 * NOTE: _Notification styles closely represent Bootstrap style naming for consistansy sake, their colors also something in between older and newer version of Bootstrap_
-## time
+
+### **time**
 * Type: `number`
 * Default: `3000`
 * Availible options: Any int
