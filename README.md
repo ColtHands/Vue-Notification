@@ -14,8 +14,8 @@ import Vue from 'vue'
 import VueNotify from 'v-notify'
 
 Vue.use(VueNotify, {
-    defaultPosition: 'top-center',
-    defaultStyle: 'info',
+    position: 'top-center',
+    style: 'info',
     time: 3000
 })
 
@@ -62,7 +62,9 @@ export default {
 
 ## Reference
 
-### **defaultPosition**
+` Vue.use(VueNotify, options{})`
+
+### **position**
 * Type: `string`
 * Default: `'top-center'`
 * Availible options:
@@ -71,7 +73,8 @@ export default {
 
     `'bottom-left'` | `'bottom-center'` | `'bottom-right'`
 * NOTE _Options are intentionally explicit to avoid confusion for new developers and legacy support, so there are no shorthand syntax like `'tc'` for `'top-center'`_
-### **defaultStyle**
+
+### **style**
 * Type: `string`
 * Default: `'basic'`
 * Availible options: `'default'` | `'basic'` | `'primary'` | `'secondary'` | `'success'` | `'info'` | `'warning'` | `'danger'` | `'dark'`
@@ -90,3 +93,4 @@ export default {
 * User defined `Vue.prototype.$notify` name
 * Tests with all positions, styles, screen resolutions
 * Multiple style types: UIkit like / Material like
+
