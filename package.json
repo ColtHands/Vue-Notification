@@ -1,13 +1,19 @@
 {
-  "name": "vue-package-template",
+  "name": "vue-notification",
   "author": "ColdHands",
-  "version": "1.0.13",
-  "description": "Vue package template",
+  "version": "1.0.1",
+  "description": "Vue notification",
   "main": "./dist/bundle.js",
   "license": "MIT",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@colthands"
   },
+  "tags": [
+    "vue-notification",
+    "notify",
+    "vue notify",
+    "notifications"
+  ],
   "babel": {
     "presets": [
       "@babel/preset-env"
@@ -61,6 +67,7 @@
     "vue": "^2.6.11",
     "vue-jest": "^3.0.6",
     "vue-loader": "^15.9.8",
+    "vue-styled-components": "^1.6.0",
     "vue-template-compiler": "^2.6.11",
     "vuex": "^3.6.2",
     "webpack": "^5.65.0",

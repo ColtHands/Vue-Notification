@@ -4,8 +4,8 @@ import App from './App.vue'
 
 Vue.use(VueNotify, {
     position: 'top-right',
-    style: 'warn',
-    mockErr: true
+    style: 'warning',
+    time: 300000
 })
 
 new Vue({

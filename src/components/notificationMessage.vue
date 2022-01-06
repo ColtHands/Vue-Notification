@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import styled from 'vue-styled-components'
 import closeIcon from './closeIcon.vue'
 
 export default {
@@ -23,38 +24,63 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-=light-text
+=light
     color: #fff
     .notification__close
         fill: #fff
-=dark-text
-    color: #333
+=dark
+    color: #333 !important
     .notification__close
         fill: #333
 
 =default
+    background-color: #fff
+    border-color: #ccc
+    +dark
 =basic
     background-color: #efefef
     border-color: #efefef
-    +dark-text
+    +dark
 =primary
+    background-color: mix(#007bff, #337ab7, 40%)
+    border-color: mix(#007bff, #2e6da4, 100%)
+    +light
 =secondary
+    background-color: #6c757d
+    border-color: #6c757d
+    +light
 =success
+    background-color: #28a745
+    border-color: #28a745
+    +light
 =info
+    background-color: #17a2b8
+    border-color: #17a2b8
+    +light
 =warning
+    background-color: #ffc107
+    border-color: #ffc107
+    +dark
 =danger
-    background-color: #d9534f
-    border-color: #d43f3a
-    +light-text
-=dark
+    background-color: #dc3545
+    border-color: #dc3545
+    +light
+=darks
+    background-color: lighten(#343a40, 10%)
+    border-color: lighten(#343a40, 10%)
+    +light
 
 .notification
+    box-sizing: border-box
     width: 100%
     border-radius: 5px
+    border: 1px solid
     padding: 15px 10px
     margin: 10px auto
     cursor: pointer
     line-height: 20px
+    touch-action: manipulation
+    user-select: none
     &__message,
     &__close
         vertical-align: top
@@ -91,5 +117,5 @@ export default {
     &_danger
         +danger
     &_dark
-        +dark
+        +darks
 </style>

@@ -1,21 +1,22 @@
 <template>
     <div>
-        <!-- TODO Split into different components for each position -->
-        <div
-            :class="['notifications', `notifications__${position}`]"
-            v-for="(position, index) in eachUniqueActivePosition"
-            :key="index"
-        >
-            <transition-group name="list" tag="div">
-                <notificationMessage
-                    v-for="e in notifications.filter(e => e.position == position)"
-                    :key="e.id"
-                    @click.native="removeNotification(e.id)"
-                    :message="e.message"
-                    :styleType="e.style"
-                />
-            </transition-group>
-        </div>
+        <transition-group name="block" tag="div">
+            <div
+                :class="['notifications', `notifications_${position}`]"
+                v-for="position in eachUniqueActivePosition"
+                :key="position"
+            >
+                <transition-group name="list" tag="div">
+                    <notificationMessage
+                        v-for="e in notifications.filter(e => e.position == position)"
+                        :key="e.id"
+                        @click.native="removeNotification(e.id)"
+                        :message="e.message"
+                        :styleType="e.style"
+                    />
+                </transition-group>
+            </div>
+        </transition-group>
     </div>
 </template>
 
@@ -59,25 +60,25 @@ export default {
 
 .notifications 
     position: fixed
-    width: 300px
-    z-index: 12345
-    font-family: Helvetica
-    &__top-left
+    width: 320px
+    z-index: 2
+    font-family: Helvetica, sans-serif
+    &_top-left
         +top
         +left
-    &__top-center
+    &_top-center
         +top
         +center
-    &__top-right
+    &_top-right
         +top
         +right
-    &__bottom-left
+    &_bottom-left
         +bottom
         +left
-    &__bottom-center
+    &_bottom-center
         +bottom
         +center
-    &__bottom-right
+    &_bottom-right
         +bottom
         +right
 
@@ -96,4 +97,10 @@ export default {
 
 .list-leave-active
     position: absolute
+
+.block-enter-active, .block-leave-active
+    transition: opacity .15s
+
+.block-enter, .block-leave-to
+    opacity: 0
 </style>

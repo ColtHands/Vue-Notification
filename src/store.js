@@ -30,19 +30,20 @@ export default new Vuex.Store({
         removeNotificationById(state, id) {
             state.notifications = state.notifications.filter(e => e.id != id)
         },
-        setDefaultOptions(state, options) {
-            state.options = options
+        setDefaultOptions(state, defaultOptions) {
+            state.defaultOptions = defaultOptions
         }
     },
     actions: {
-        [SET_DEFAULT_OPTIONS]({ commit }, options) {
-            if(validateOptions(options)) {
-                commit('setDefaultOptions', options)
+        [SET_DEFAULT_OPTIONS]({ commit }, defaultOptions) {
+            if(validateOptions(defaultOptions)) {
+                commit('setDefaultOptions', defaultOptions)
             } else {
                 console.warn('Vue-Notify: there are problems with your options config', validateOptions.errors)
             }
         },
         [NOTIFY]({ commit, state }, { message, options }) {
+            console.log(NOTIFY, message, options)
             if(validateOptions(options)) {
                 const id = uuidV4()
     

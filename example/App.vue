@@ -41,8 +41,8 @@
 <script>
 export default {
     methods: {
-        clickHandle(position, style) {
-            this.$notify(`This notification appears at ${position} with ${style} style`, { time: 30000, position, style })
+        clickHandle(position, style, time) {
+            this.$notify(`This notification appears at ${position} with ${style} style`, { time, position, style })
         }
     }
 }
