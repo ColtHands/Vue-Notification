@@ -21,7 +21,9 @@ module.exports = {
             extractComments: false,
             terserOptions: {
                 compress: {
-                    drop_console: false
+                    dead_code: true,
+                    keep_fargs: false,
+                    pure_funcs: ['console.log']
                 }
             }
         })]
