@@ -93,4 +93,4 @@ export default {
 * User defined `Vue.prototype.$notify` name
 * Tests with all positions, styles, screen resolutions
 * Multiple style types: UIkit like / Material like
-
+* Currently build is quite big, cuz ajv takes half the size, i'd split code into less chunks.
