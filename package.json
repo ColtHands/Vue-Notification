@@ -6,7 +6,8 @@
   "main": "./dist/bundle.js",
   "license": "MIT",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@colthands"
+    "gitRegistry": "https://npm.pkg.github.com/@colthands",
+    "npmRegistry": "https://registry.npmjs.org/"
   },
   "tags": [
     "vue-notification",

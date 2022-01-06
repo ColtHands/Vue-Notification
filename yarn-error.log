@@ -41,7 +41,11 @@ npm manifest:
       "vue-notification",
       "notify",
       "vue notify",
-      "notifications"
+      "notifications",
+      "vue notification",
+      "pop up",
+      "pop-up",
+      "vue-pop-up"
     ],
     "babel": {
       "presets": [
@@ -96,7 +100,6 @@ npm manifest:
       "vue": "^2.6.11",
       "vue-jest": "^3.0.6",
       "vue-loader": "^15.9.8",
-      "vue-styled-components": "^1.6.0",
       "vue-template-compiler": "^2.6.11",
       "vuex": "^3.6.2",
       "webpack": "^5.65.0",
@@ -2288,6 +2291,14 @@ Lockfile:
     integrity sha512-AF3r7P5dWxL8MxyITRMlORQNaOA2IkAFaTr4k7BUumjPtRpGDTZpl0Pb1XCO6JeDCBdp126Cgs9sMxqSjgYyRg==
     dependencies:
       mime-db ">= 1.43.0 < 2"
+  
+  compression-webpack-plugin@^9.2.0:
+    version "9.2.0"
+    resolved "https://registry.yarnpkg.com/compression-webpack-plugin/-/compression-webpack-plugin-9.2.0.tgz#57fd539d17c5907eebdeb4e83dcfe2d7eceb9ef6"
+    integrity sha512-R/Oi+2+UHotGfu72fJiRoVpuRifZT0tTC6UqFD/DUo+mv8dbOow9rVOuTvDv5nPPm3GZhHL/fKkwxwIHnJ8Nyw==
+    dependencies:
+      schema-utils "^4.0.0"
+      serialize-javascript "^6.0.0"
   
   compression@^1.7.4:
     version "1.7.4"
