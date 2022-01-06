@@ -1,5 +1,10 @@
 # Vue Notification Package
 
+_Currently, this pkg works correctly and I have 0 problems with it, but that doesn't mean you will have 0 problems as well._
+_Problem is this pkg is not tested, only manually._
+_I'm working hard to optimize every aspect of this pkg, but it still may produce some unexpected behaviour_
+_If you have any suggestion, or a problem with this pkg, feel free to create an issue and i'd be right on fixing it_
+
 ## Install the package
 
 `yarn add v-notify`
