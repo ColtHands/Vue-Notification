@@ -5,6 +5,7 @@
   "description": "Vue notification",
   "main": "./dist/bundle.js",
   "license": "MIT",
+  "repository": "https://github.com/ColtHands/Vue-Notification.git",
   "publishConfig": {
     "gitRegistry": "https://npm.pkg.github.com/@colthands",
     "npmRegistry": "https://registry.npmjs.org/",
