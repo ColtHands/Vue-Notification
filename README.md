@@ -65,6 +65,8 @@ export default {
 </script>
 ```
 
+![Example gif](https://github.com/ColtHands/Vue-Notification/blob/master/example/styles.gif?raw=true)
+
 ## Reference
 
 ` Vue.use(VueNotify, options{})`
