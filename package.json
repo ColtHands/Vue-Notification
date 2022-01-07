@@ -1,7 +1,7 @@
 {
   "name": "v-notify",
   "author": "ColdHands",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Vue notification",
   "main": "./dist/bundle.js",
   "license": "MIT",
