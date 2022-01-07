@@ -1,7 +1,6 @@
 import { v4 as uuidV4 } from 'uuid'
 import Vue from 'vue'
 import Vuex from 'vuex'
-import validateOptions from './validateOptions.js'
 import {
     SET_DEFAULT_OPTIONS,
     NOTIFY,
@@ -36,31 +35,23 @@ export default new Vuex.Store({
     },
     actions: {
         [SET_DEFAULT_OPTIONS]({ commit }, defaultOptions) {
-            if(validateOptions(defaultOptions)) {
-                commit('setDefaultOptions', defaultOptions)
-            } else {
-                console.warn('Vue-Notify: there are problems with your options config', validateOptions.errors)
-            }
+            commit('setDefaultOptions', defaultOptions)
         },
         [NOTIFY]({ commit, state }, { message, options }) {
             console.log(NOTIFY, message, options)
-            if(validateOptions(options)) {
-                const id = uuidV4()
-    
-                const {
-                    time = state.defaultOptions.time,
-                    position = state.defaultOptions.position,
-                    style = state.defaultOptions.style
-                } = options
-    
-                commit('addNewNotification', { message, id, position, style })
-    
-                setTimeout(() => {
-                    commit('removeNotificationById', id)
-                }, time || state.defaultOptions.time)
-            } else {
-                console.warn('Vue-Notify: there are problems with your options config', validateOptions.errors)
-            }
+            const id = uuidV4()
+
+            const {
+                time = state.defaultOptions.time,
+                position = state.defaultOptions.position,
+                style = state.defaultOptions.style
+            } = options
+
+            commit('addNewNotification', { message, id, position, style })
+
+            setTimeout(() => {
+                commit('removeNotificationById', id)
+            }, time || state.defaultOptions.time)
         },
         [REMOVE_NOTIFICATION_BY_ID]({ commit }, id) {
             commit('removeNotificationById', id)

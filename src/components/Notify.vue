@@ -1,33 +1,33 @@
 <template>
-    <div>
-        <transition-group name="block" tag="div">
-            <div
-                :class="['notifications', `notifications_${position}`]"
-                v-for="position in eachUniqueActivePosition"
-                :key="position"
-            >
-                <transition-group name="list" tag="div">
-                    <notificationMessage
-                        v-for="e in notifications.filter(e => e.position == position)"
-                        :key="e.id"
-                        @click.native="removeNotification(e.id)"
-                        :message="e.message"
-                        :styleType="e.style"
-                    />
-                </transition-group>
-            </div>
-        </transition-group>
-    </div>
+    <transition-group name="block" tag="div">
+        <notifyPositionGroup
+            v-for="position in eachUniqueActivePosition"
+            :key="position"
+            :position="position"
+        >
+            <transition-group name="list" tag="div">
+                <notificationMessage
+                    v-for="e in notifications.filter(e => e.position == position)"
+                    :key="e.id"
+                    @click.native="removeNotification(e.id)"
+                    :message="e.message"
+                    :styleType="e.style"
+                />
+            </transition-group>
+        </notifyPositionGroup>
+    </transition-group>
 </template>
 
 <script>
 import notificationMessage from './notificationMessage.vue'
+import notifyPositionGroup from './notifyPositionGroup.vue'
 import { REMOVE_NOTIFICATION_BY_ID } from "./../actionTypes.js"
 import store from './../store.js'
 
 export default {
     components: {
-        notificationMessage
+        notificationMessage,
+        notifyPositionGroup
     },
     methods: {
         removeNotification(id) {
@@ -46,42 +46,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-=top
-    top: 25px
-=bottom
-    bottom: 25px
-=left
-    left: 25px
-=right
-    right: 25px
-=center
-    color: blue
-    left: calc(50% - 150px)
-
-.notifications 
-    position: fixed
-    width: 320px
-    z-index: 2
-    font-family: Helvetica, sans-serif
-    &_top-left
-        +top
-        +left
-    &_top-center
-        +top
-        +center
-    &_top-right
-        +top
-        +right
-    &_bottom-left
-        +bottom
-        +left
-    &_bottom-center
-        +bottom
-        +center
-    &_bottom-right
-        +bottom
-        +right
-
 .notification
     transition: all 0.15s
 

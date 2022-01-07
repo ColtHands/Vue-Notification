@@ -4,7 +4,7 @@ import App from './App.vue'
 
 Vue.use(VueNotify, {
     position: 'top-right',
-    style: 'warning',
+    style: 'warnings',
     time: 300000
 })
 

@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import styled from 'vue-styled-components'
 import closeIcon from './closeIcon.vue'
+import { styleOptions } from './../availibleOptions.js'
 
 export default {
     components: {
@@ -16,9 +16,14 @@ export default {
     props: {
         message: {
             type: String,
-            required: true
+            required: true,
         },
-        styleType: String
+        styleType: {
+            type: String,
+            required: true,
+            default: 'basic',
+            validator: val => styleOptions.includes(val)
+        }
     }
 }
 </script>
@@ -81,9 +86,8 @@ export default {
     line-height: 20px
     touch-action: manipulation
     user-select: none
+    background-color: #fff
     &__message,
-    &__close
-        vertical-align: top
     &__message
         font-size: 14px
     &__close
@@ -100,6 +104,9 @@ export default {
     &:hover
         .notification__close
             visibility: visible
+    .notification__close
+        vertical-align: top
+        fill: #333
     &_default
         +default
     &_basic
