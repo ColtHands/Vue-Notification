@@ -12,11 +12,16 @@
     "registry": "https://registry.npmjs.org/"
   },
   "keywords": [
+    "vue",
+    "notification",
+    "vue notification",
     "vue-notification",
     "notify",
     "vue notify",
+    "vue-notify",
+    "v-notify",
     "notifications",
-    "vue notification",
+    "vue notifications",
     "pop up",
     "pop-up",
     "vue-pop-up"
