@@ -33,6 +33,7 @@
                 <button @click="clickHandle(undefined, 'warning')">warning style</button>
                 <button @click="clickHandle(undefined, 'danger')">danger style</button>
                 <button @click="clickHandle(undefined, 'dark')">dark style</button>
+                <button @click="clickHandle(undefined, 'danger-light')">danger-light</button>
             </div>
         </div>
     </div>

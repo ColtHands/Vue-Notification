@@ -30,7 +30,17 @@ export default new Vuex.Store({
             state.notifications = state.notifications.filter(e => e.id != id)
         },
         setDefaultOptions(state, defaultOptions) {
-            state.defaultOptions = defaultOptions
+            const {
+                position,
+                style,
+                time
+            } = defaultOptions
+            
+            state.defaultOptions = {
+                position,
+                style,
+                time
+            }
         }
     },
     actions: {
@@ -38,7 +48,6 @@ export default new Vuex.Store({
             commit('setDefaultOptions', defaultOptions)
         },
         [NOTIFY]({ commit, state }, { message, options }) {
-            console.log(NOTIFY, message, options)
             const id = uuidV4()
 
             const {

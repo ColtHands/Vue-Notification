@@ -74,6 +74,12 @@ export default {
     background-color: lighten(#343a40, 10%)
     border-color: lighten(#343a40, 10%)
     +light
+=danger-light
+    background: #f9ebea
+    color: #d85030
+    border-color: lighten(#d85030, 35%)
+    .notification__close
+        fill: #d85030
 
 .notification
     box-sizing: border-box
@@ -125,4 +131,6 @@ export default {
         +danger
     &_dark
         +darks
+    &_danger-light
+        +danger-light
 </style>

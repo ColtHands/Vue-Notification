@@ -84,7 +84,7 @@ export default {
 ### **style**
 * Type: `string`
 * Default: `'basic'`
-* Availible options: `'default'` | `'basic'` | `'primary'` | `'secondary'` | `'success'` | `'info'` | `'warning'` | `'danger'` | `'dark'`
+* Availible options: `'default'` | `'basic'` | `'primary'` | `'secondary'` | `'success'` | `'info'` | `'warning'` | `'danger'` | `'dark'` | `'danger-light'`
 * NOTE: _Notification styles closely represent Bootstrap style naming for consistansy sake, their colors also something in between older and newer version of Bootstrap_
 
 ### **time**
@@ -93,11 +93,9 @@ export default {
 * Availible options: Any int
 * NOTE: _Currently you can input any integer, there are no restrictions which maybe produce errors_
 
-## NOTEs / TODOs / Rodeman
-* Users can currently change styles through basic class naming, its convinient, but when you need `notification` class name, this could cause problems
-* Split everything to styled components for class naming safety NOTE _only if nessesary_, cuz it depends from project to project. This feature will require a bit more code so user could edit styles through options.
+## NOTEs / TODOs / Rodemap
+* Vuex store / state object validation
 * User defined class style name to replace `.notification` since its more powerfull to use `sass` instead of styled components or class/style bindings.
 * User defined `Vue.prototype.$notify` name
 * Tests with all positions, styles, screen resolutions
 * Multiple style types: UIkit like / Material like
-* Currently build is quite big, cuz ajv takes half the size, i'd split code into less chunks.
