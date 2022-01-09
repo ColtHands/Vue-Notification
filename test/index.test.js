@@ -1,19 +1,38 @@
 import { mount, createLocalVue } from '@vue/test-utils'
-import { describe } from 'yargs'
-// import VueNotification from './../dist/bundle.js'
 import notificationMessage from './../src/components/notificationMessage.vue'
 
-const Vue = createLocalVue()
-
+// import VueNotification from './../dist/bundle.js'
+// const Vue = createLocalVue()
 // Vue.use(VueNotification)
 
-const wrapComponent = mount(notificationMessage)
-
-console.log(wrapComponent.vm.$props.message)
-console.log(wrapComponent.vm.$props.styleType)
-
-describe('aasd', () => {
+describe('Testing single notificationMessage.vue component', () => {
     test('has default values', () => {
-        expect(wrapComponent.vm.$props.message).toBe('')
+        const wrapComponent = mount(notificationMessage)
+
+        expect(wrapComponent.props().message).toBe('')
+        expect(wrapComponent.vm.$props.styleType).toBe('basic')
+    })
+
+    test('has default classNames', () => {
+        const wrapComponent = mount(notificationMessage)
+
+        expect(wrapComponent.classes()).toContain('notification')
+        expect(wrapComponent.classes()).toContain('notification_basic')
+    })
+
+    test('has correct classNames with props', () => {
+        const styleType = 'danger'
+        const wrapComponent = mount(notificationMessage, { propsData: { styleType }})
+
+        expect(wrapComponent.classes()).toContain('notification')
+        expect(wrapComponent.classes()).toContain(`notification_${styleType}`)
+    })
+
+    test('className dont have wrong notification_${styleType} modificator, that shouldnt exist', () => {
+        const styleType = 'poop'
+        const wrapComponent = mount(notificationMessage, { propsData: { styleType }})
+
+        expect(wrapComponent.classes()).toContain('notification')
+        expect(wrapComponent.classes()).not.toContain(`notification_${styleType}`)
     })
 })

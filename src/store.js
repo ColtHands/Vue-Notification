@@ -47,7 +47,7 @@ export default new Vuex.Store({
         [SET_DEFAULT_OPTIONS]({ commit }, defaultOptions) {
             commit('setDefaultOptions', defaultOptions)
         },
-        [NOTIFY]({ commit, state }, { message, options }) {
+        [NOTIFY]({ commit, state }, { message, options = {} }) {
             const id = uuidV4()
 
             const {

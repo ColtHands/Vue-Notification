@@ -54,7 +54,8 @@
   "scripts": {
     "start": "webpack serve --mode=development",
     "build": "webpack --mode=production",
-    "test": "jest"
+    "test": "jest",
+    "save": "yarn build && git status && git add . && git commit -m save && git push"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
