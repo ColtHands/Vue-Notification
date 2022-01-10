@@ -16,7 +16,7 @@ const store = new Vuex.Store({
             this._vm.$notify('notification from store')
         },
         clickFromStoreUsingPlugin() {
-            console.log(this.$notify('notification sent from store prototype function'))
+            this.$notify('notification sent from store prototype function')
         }
     }
 })

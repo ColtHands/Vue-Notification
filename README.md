@@ -74,7 +74,17 @@ import VueNotify, { NotificationVuexPlugin } from './../src/index.js'
 Vue.use(VueNotify)
 
 const store = new Vuex.Store({
-    plugins: [NotificationVuexPlugin]
+    plugins: [NotificationVuexPlugin],
+    actions: {
+        callNotifyFromVuex() {
+            // this method REQUIRES plugin
+            this.$notify('notification sent from store prototype function')
+        },
+        callNotifyFromVuex() {
+            // this method DOES NOT REQUIRE plugin as it calls using vue instance
+            this._vm.$notify('notification from store')
+        }
+    }
 })
 
 new Vue({
