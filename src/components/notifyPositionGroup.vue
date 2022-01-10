@@ -7,6 +7,7 @@
 <script>
 import { positionOptions } from './../availibleOptions.js'
 
+// TODO add normal position class as notification message
 export default {
     props: {
         position: {
