@@ -65,6 +65,27 @@ export default {
 </script>
 ```
 
+## 4. Optionally you can use it inside your vuex store
+
+### Setup
+```js
+import VueNotify, { NotificationVuexPlugin } from './../src/index.js'
+
+Vue.use(VueNotify)
+
+const store = new Vuex.Store({
+    plugins: [NotificationVuexPlugin]
+})
+
+new Vue({
+    store,
+    el: '#app',
+    components: {
+        App
+    }
+})
+```
+
 ![Example gif](https://github.com/ColtHands/Vue-Notification/blob/master/example/styles.gif?raw=true)
 
 ## Reference

@@ -35,6 +35,12 @@
                 <button @click="clickHandle(undefined, 'dark')">dark style</button>
                 <button @click="clickHandle(undefined, 'danger-light')">danger-light</button>
             </div>
+            <br>
+            <div>
+                <button @click="clickFromStore()">default click from store</button>
+                <button @click="clickFromVueUsingStore()">clickFromVueUsingStore</button>
+                <button @click="clickFromStoreUsingPlugin()">clickFromStoreUsingPlugin</button>
+            </div>
         </div>
     </div>
 </template>
@@ -44,6 +50,15 @@ export default {
     methods: {
         clickHandle(position, style, time) {
             this.$notify(`This notification appears at ${position} with ${style} style`, { time, position, style })
+        },
+        clickFromStore() {
+            this.$store.dispatch('callNotificationFromStore')
+        },
+        clickFromVueUsingStore() {
+            this.$store.$notify('notify from store plugin', { style: 'danger-light' })
+        },
+        clickFromStoreUsingPlugin() {
+            this.$store.dispatch('clickFromStoreUsingPlugin')
         }
     }
 }

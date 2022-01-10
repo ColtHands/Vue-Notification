@@ -10,14 +10,14 @@ describe('Testing single notificationMessage.vue component', () => {
         const wrapComponent = mount(notificationMessage)
 
         expect(wrapComponent.props().message).toBe('')
-        expect(wrapComponent.vm.$props.styleType).toBe('basic')
+        expect(wrapComponent.vm.$props.styleType).toBe('danger-light')
     })
 
     test('has default classNames', () => {
         const wrapComponent = mount(notificationMessage)
 
         expect(wrapComponent.classes()).toContain('notification')
-        expect(wrapComponent.classes()).toContain('notification_basic')
+        expect(wrapComponent.classes()).toContain('notification_danger-light')
     })
 
     test('has correct classNames with props', () => {
@@ -36,3 +36,7 @@ describe('Testing single notificationMessage.vue component', () => {
         expect(wrapComponent.classes()).not.toContain(`notification_${styleType}`)
     })
 })
+
+// TODO test all styles
+// TODO test default poisitions
+// TODO test all positions

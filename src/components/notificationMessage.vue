@@ -1,5 +1,5 @@
 <template>
-    <div :class="['notification', `notification_${styleType}`]">
+    <div :class="['notification', singleNotificationClassName]">
         <closeIcon class="notification__close"/>
         <span class="notification__message">{{message}}</span>
     </div>
@@ -8,6 +8,7 @@
 <script>
 import closeIcon from './closeIcon.vue'
 import { styleOptions } from './../availibleOptions.js'
+import store from './../store.js'
 
 export default {
     components: {
@@ -22,8 +23,13 @@ export default {
         styleType: {
             type: String,
             required: true,
-            default: 'basic',
+            default: store.state.defaultOptions.style,
             validator: val => styleOptions.includes(val)
+        }
+    },
+    computed: {
+        singleNotificationClassName() {
+            return `notification_${styleOptions.includes(this.$props.styleType) ? this.$props.styleType : store.state.defaultOptions.style}`
         }
     }
 }

@@ -6,6 +6,7 @@ import {
     NOTIFY,
     REMOVE_NOTIFICATION_BY_ID
 } from './actionTypes.js'
+import { defaultStyle, defaultPosition } from './availibleOptions.js'
 
 Vue.use(Vuex)
 
@@ -13,8 +14,8 @@ export default new Vuex.Store({
     state: {
         notifications: [],
         defaultOptions: {
-            position: 'top-center',
-            style: 'basic',
+            position: defaultPosition,
+            style: defaultStyle,
             time: 3000
         }
     },
@@ -29,11 +30,11 @@ export default new Vuex.Store({
         removeNotificationById(state, id) {
             state.notifications = state.notifications.filter(e => e.id != id)
         },
-        setDefaultOptions(state, defaultOptions) {
+        setDefaultOptions(state, defaultOptions = {}) {
             const {
-                position,
-                style,
-                time
+                position = defaultPosition,
+                style = defaultStyle,
+                time = 3000
             } = defaultOptions
             
             state.defaultOptions = {
