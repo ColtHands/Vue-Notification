@@ -8,7 +8,6 @@
 <script>
 import closeIcon from './closeIcon.vue'
 import { styleOptions } from './../availibleOptions.js'
-import store from './../store.js'
 
 export default {
     components: {
@@ -23,13 +22,12 @@ export default {
         styleType: {
             type: String,
             required: true,
-            default: store.state.defaultOptions.style,
             validator: val => styleOptions.includes(val)
         }
     },
     computed: {
         singleNotificationClassName() {
-            return `notification_${styleOptions.includes(this.$props.styleType) ? this.$props.styleType : store.state.defaultOptions.style}`
+            return `notification_${styleOptions.includes(this.$props.styleType) ? this.$props.styleType : this.$store.state.defaultOptions.style}`
         }
     }
 }

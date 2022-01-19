@@ -23,7 +23,7 @@ module.exports = {
                 compress: {
                     dead_code: true,
                     keep_fargs: false,
-                    pure_funcs: ['console.log']
+                    // pure_funcs: ['console.log']
                 }
             }
         })]

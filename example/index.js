@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import VueNotify, { NotificationVuexPlugin } from './../src/index.js'
+import VueNotify, { NotificationVuexPlugin } from './../dist/bundle.js'
 import App from './App.vue'
 
 Vue.use(Vuex)
@@ -8,6 +8,8 @@ Vue.use(Vuex)
 Vue.use(VueNotify, {
     time: 300000
 })
+
+console.log(VueNotify, NotificationVuexPlugin)
 
 const store = new Vuex.Store({
     plugins: [NotificationVuexPlugin],

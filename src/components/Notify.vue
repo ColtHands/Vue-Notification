@@ -1,45 +1,52 @@
 <template>
-    <transition-group name="block" tag="div">
-        <notifyPositionGroup
-            v-for="position in eachUniqueActivePosition"
-            :key="position"
-            :position="position"
-        >
-            <transition-group name="list" tag="div">
-                <notificationMessage
-                    v-for="e in notifications.filter(e => e.position == position)"
-                    :key="e.id"
-                    @click.native="removeNotification(e.id)"
-                    :message="e.message"
-                    :styleType="e.style"
-                />
-            </transition-group>
-        </notifyPositionGroup>
-    </transition-group>
+    <div>
+        asd
+        <transition-group name="block" tag="div">
+            <notifyPositionGroup
+                v-for="position in eachUniqueActivePosition"
+                :key="position"
+                :position="position"
+            >
+                <transition-group name="list" tag="div">
+                    <notificationMessage
+                        v-for="e in notifications.filter(e => e.position == position)"
+                        :key="e.id"
+                        @click.native="removeNotification(e.id)"
+                        :message="e.message"
+                        :styleType="e.style"
+                    />
+                </transition-group>
+            </notifyPositionGroup>
+        </transition-group>
+    </div>
 </template>
 
 <script>
 import notificationMessage from './notificationMessage.vue'
 import notifyPositionGroup from './notifyPositionGroup.vue'
 import { REMOVE_NOTIFICATION_BY_ID } from "./../actionTypes.js"
-import store from './../store.js'
 
 export default {
     components: {
         notificationMessage,
         notifyPositionGroup
     },
+    mounted() {
+        console.log("HELO", this.$store)
+        console.log("HELO", this.$store.state)
+        console.log("HELO", this.$store.getters)
+    },
     methods: {
         removeNotification(id) {
-            store.dispatch(REMOVE_NOTIFICATION_BY_ID, id)
+            this.$store.dispatch(REMOVE_NOTIFICATION_BY_ID, id)
         }
     },
     computed: {
         notifications() {
-            return store.getters.notifications
+            return this.$store.getters.notifications
         },
         eachUniqueActivePosition() {
-            return store.getters.eachUniqueActivePosition
+            return this.$store.getters.eachUniqueActivePosition
         }
     }
 }

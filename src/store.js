@@ -1,6 +1,4 @@
 import { v4 as uuidV4 } from 'uuid'
-import Vue from 'vue'
-import Vuex from 'vuex'
 import {
     SET_DEFAULT_OPTIONS,
     NOTIFY,
@@ -8,9 +6,7 @@ import {
 } from './actionTypes.js'
 import { defaultStyle, defaultPosition } from './availibleOptions.js'
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default {
     state: {
         notifications: [],
         defaultOptions: {
@@ -46,9 +42,12 @@ export default new Vuex.Store({
     },
     actions: {
         [SET_DEFAULT_OPTIONS]({ commit }, defaultOptions) {
+            console.log(SET_DEFAULT_OPTIONS)
             commit('setDefaultOptions', defaultOptions)
         },
-        [NOTIFY]({ commit, state }, { message, options = {} }) {
+        [NOTIFY]({ commit, state, getters }, { message, options = {} }) {
+            console.log("NOTIFY", state, getters)
+
             const id = uuidV4()
 
             const {
@@ -67,4 +66,4 @@ export default new Vuex.Store({
             commit('removeNotificationById', id)
         }
     }
-})
+}

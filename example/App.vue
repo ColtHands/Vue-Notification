@@ -37,6 +37,7 @@
             </div>
             <br>
             <div>
+                <button @click="testClick()">testClick</button>
                 <button @click="clickFromStore()">default click from store</button>
                 <button @click="clickFromVueUsingStore()">clickFromVueUsingStore</button>
                 <button @click="clickFromStoreUsingPlugin()">clickFromStoreUsingPlugin</button>
@@ -59,6 +60,10 @@ export default {
         },
         clickFromStoreUsingPlugin() {
             this.$store.dispatch('clickFromStoreUsingPlugin')
+        },
+        testClick() {
+            this.$notify('asd')
+            console.log(this.$notify)
         }
     }
 }
