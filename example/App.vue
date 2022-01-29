@@ -38,9 +38,10 @@
             <br>
             <div>
                 <button @click="testClick()">testClick</button>
-                <button @click="clickFromStore()">default click from store</button>
+                <button @click="callNotificationFromStore()">callNotificationFromStore</button>
                 <button @click="clickFromVueUsingStore()">clickFromVueUsingStore</button>
                 <button @click="clickFromStoreUsingPlugin()">clickFromStoreUsingPlugin</button>
+                <button @click="clickFrom$notifyStore()">clickFrom$notifyStore</button>
             </div>
         </div>
     </div>
@@ -52,7 +53,7 @@ export default {
         clickHandle(position, style, time) {
             this.$notify(`This notification appears at ${position} with ${style} style`, { time, position, style })
         },
-        clickFromStore() {
+        callNotificationFromStore() {
             this.$store.dispatch('callNotificationFromStore')
         },
         clickFromVueUsingStore() {
@@ -61,9 +62,11 @@ export default {
         clickFromStoreUsingPlugin() {
             this.$store.dispatch('clickFromStoreUsingPlugin')
         },
+        clickFrom$notifyStore() {
+            this.$notifyStore.dispatch('NOTIFY', { message: 'wtf' })
+        },
         testClick() {
-            this.$notify('asd')
-            console.log(this.$notify)
+            this.$notify('asd', { style: 'asd' })
         }
     }
 }

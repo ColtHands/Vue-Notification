@@ -60,6 +60,7 @@ export default {
 </script>
 ```
 
+<!--
 ## 4. Optionally you can use it inside your vuex store
 
 ### Setup
@@ -90,6 +91,7 @@ new Vue({
     }
 })
 ```
+-->
 
 ![Example gif](https://github.com/ColtHands/Vue-Notification/blob/master/example/styles.gif?raw=true)
 
@@ -110,7 +112,15 @@ new Vue({
 ### **style**
 * Type: `string`
 * Default: `'basic'`
-* Availible options: `'default'` | `'basic'` | `'primary'` | `'secondary'` | `'success'` | `'info'` | `'warning'` | `'danger'` | `'dark'` | `'danger-light'`
+* Availible options:
+
+    `'default'` | `'basic'`
+    
+    `'primary'` | `'secondary'`
+
+    `'success'` | `'info'` | `'warning'`
+
+     `'danger'` | `'dark'` | `'danger-light'`
 * NOTE: _Notification styles closely represent Bootstrap style naming for consistansy sake, their colors also something in between older and newer version of Bootstrap_
 
 ### **time**

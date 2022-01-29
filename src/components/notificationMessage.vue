@@ -21,13 +21,18 @@ export default {
         },
         styleType: {
             type: String,
-            required: true,
+            required: false,
+            default: 'default',
             validator: val => styleOptions.includes(val)
         }
     },
     computed: {
         singleNotificationClassName() {
-            return `notification_${styleOptions.includes(this.$props.styleType) ? this.$props.styleType : this.$store.state.defaultOptions.style}`
+            if(styleOptions.includes(this.$props.styleType)) {
+                return `notification_${this.$props.styleType}`
+            } else {
+                return `notification_${this.$notifyStore.state.defaultOptions.style}`
+            }
         }
     }
 }

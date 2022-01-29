@@ -4,7 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const argv = require('yargs').argv
 
-const minimize = argv.mode == 'production'
+const prodMode = argv.mode == 'production'
 const devMode = argv.mode == 'development'
 
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
         libraryTarget: 'umd'
     },
     optimization: {
-        minimize,
+        minimize: prodMode,
         minimizer: [new TerserPlugin({
             parallel: false,
             extractComments: false,

@@ -56,7 +56,7 @@
     "start": "webpack serve --mode=development",
     "build": "webpack --watch --mode=production",
     "test": "jest",
-    "save": "yarn test && yarn build && git status && git add . && git commit -m save && git push"
+    "save": "yarn test && webpack --mode=production && git status && git add . && git commit -m save && git push"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",

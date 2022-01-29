@@ -1,6 +1,5 @@
 <template>
     <div>
-        asd
         <transition-group name="block" tag="div">
             <notifyPositionGroup
                 v-for="position in eachUniqueActivePosition"
@@ -31,22 +30,17 @@ export default {
         notificationMessage,
         notifyPositionGroup
     },
-    mounted() {
-        console.log("HELO", this.$store)
-        console.log("HELO", this.$store.state)
-        console.log("HELO", this.$store.getters)
-    },
     methods: {
         removeNotification(id) {
-            this.$store.dispatch(REMOVE_NOTIFICATION_BY_ID, id)
+            this.$notifyStore.dispatch(REMOVE_NOTIFICATION_BY_ID, id)
         }
     },
     computed: {
         notifications() {
-            return this.$store.getters.notifications
+            return this.$notifyStore.getters.notifications
         },
         eachUniqueActivePosition() {
-            return this.$store.getters.eachUniqueActivePosition
+            return this.$notifyStore.getters.eachUniqueActivePosition
         }
     }
 }
