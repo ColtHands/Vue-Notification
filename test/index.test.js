@@ -8,38 +8,36 @@ localVue.use(Vuex)
 localVue.prototype.$notifyStore = new Vuex.Store(notifyStore)
 
 describe('Testing single notificationMessage.vue component', () => {
-    test('notificationMessage has default values', () => {
-        const wrapComponent = mount(notificationMessage, {
-            propsData: { message: '' },
-            localVue
-        })
-
-        expect(wrapComponent.props().message).toBe('')
-        expect(wrapComponent.vm.$props.styleType).toBe('default')
+    const wrapNotificationMessage = mount(notificationMessage, {
+        propsData: { message: '' },
+        localVue
     })
 
-    // test('notificationMessage has default classNames', () => {
-    //     const wrapComponent = mount(notificationMessage)
+    test('notificationMessage has default values', () => {
+        expect(wrapNotificationMessage.props().message).toBe('')
+        expect(wrapNotificationMessage.vm.$props.styleType).toBe('default')
+    })
 
-    //     expect(wrapComponent.classes()).toContain('notification')
-    //     expect(wrapComponent.classes()).toContain('notification_danger-light')
-    // })
+    test('notificationMessage has default classNames', () => {
+        expect(wrapNotificationMessage.classes()).toContain('notification')
+        expect(wrapNotificationMessage.classes()).toContain('notification_default')
+    })
 
-    // test('notificationMessage has correct classNames with props', () => {
-    //     const styleType = 'danger'
-    //     const wrapComponent = mount(notificationMessage, { propsData: { styleType, message: '' }})
+    test('notificationMessage has correct classNames with props', () => {
+        const styleType = 'danger'
+        const wrapNotificationMessage = mount(notificationMessage, { propsData: { styleType, message: '' }})
 
-    //     expect(wrapComponent.classes()).toContain('notification')
-    //     expect(wrapComponent.classes()).toContain(`notification_${styleType}`)
-    // })
+        expect(wrapNotificationMessage.classes()).toContain('notification')
+        expect(wrapNotificationMessage.classes()).toContain(`notification_${styleType}`)
+    })
 
-    // test('notificationMessage className dont have wrong notification_${styleType} modificator, that shouldnt exist', () => {
-    //     const styleType = 'poop'
-    //     const wrapComponent = mount(notificationMessage, { propsData: { styleType, message: '' }})
+    test('notificationMessage className dont have wrong notification_${styleType} modificator, that shouldnt exist', () => {
+        const styleType = 'poop'
+        const wrapNotificationMessage = mount(notificationMessage, {localVue, propsData: { styleType, message: '' }})
 
-    //     expect(wrapComponent.classes()).toContain('notification')
-    //     expect(wrapComponent.classes()).not.toContain(`notification_${styleType}`)
-    // })
+        expect(wrapNotificationMessage.classes()).toContain('notification')
+        expect(wrapNotificationMessage.classes()).not.toContain(`notification_${styleType}`)
+    })
 })
 
 // TODO test all styles
