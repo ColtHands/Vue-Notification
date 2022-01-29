@@ -14,17 +14,21 @@ export default {
     install(Vue, options) {
         if (this.installed) { return }
         this.installed = true
+        const {
+            notifyOptions,
+            name = 'notify'
+        } = options
         
         Vue.use(Vuex)
         
         const storeInstance = new Vuex.Store(notifyStore)
         Vue.prototype.$notifyStore = storeInstance
         
-        storeInstance.dispatch(SET_DEFAULT_OPTIONS, options)
+        storeInstance.dispatch(SET_DEFAULT_OPTIONS, notifyOptions)
         
         Vue.component('Notify', Vue.extend(Notify))
         
-        Vue.prototype.$notify = NotifyFn
+        Vue.prototype['$' + name] = NotifyFn
     }
 }
 

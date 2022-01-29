@@ -130,11 +130,11 @@ new Vue({
 * NOTE: _Currently you can input any integer, there are no restrictions which maybe produce errors_
 
 ## NOTEs / TODOs / Rodemap
-* Vuex store / state object validation
 * User defined class style name to replace `.notification` since its more powerfull to use `sass` instead of styled components or class/style bindings.
 * User defined `Vue.prototype.$notify` name
 * Tests with all positions, styles, screen resolutions
 * Multiple style types: UIkit like / Material like
+* New settings: `name` for custom plugin name, `width`,
 
 _Currently, this pkg works correctly and I have 0 problems with it, but that doesn't mean you will have 0 problems as well._
 _Problem is this pkg is not tested, only manually._

@@ -6,8 +6,11 @@ import App from './App.vue'
 Vue.use(Vuex)
 
 Vue.use(VueNotify, {
-    time: 300000,
-    style: 'danger-light'
+    name: 'notify',
+    {
+        time: 300000,
+        style: 'danger-light'
+    }
 })
 
 const store = new Vuex.Store({
