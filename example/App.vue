@@ -37,10 +37,9 @@
             </div>
             <br>
             <div>
-                <button @click="testClick()">testClick</button>
                 <button @click="callNotificationFromStore()">callNotificationFromStore</button>
-                <button @click="clickFromVueUsingStore()">clickFromVueUsingStore</button>
-                <button @click="clickFromStoreUsingPlugin()">clickFromStoreUsingPlugin</button>
+                <!-- <button @click="clickFromVueUsingStore()">clickFromVueUsingStore</button> -->
+                <!-- <button @click="clickFromStoreUsingPlugin()">clickFromStoreUsingPlugin</button> -->
                 <button @click="clickFrom$notifyStore()">clickFrom$notifyStore</button>
             </div>
         </div>

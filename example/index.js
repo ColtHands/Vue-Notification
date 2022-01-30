@@ -6,11 +6,8 @@ import App from './App.vue'
 Vue.use(Vuex)
 
 Vue.use(VueNotify, {
-    name: 'notify',
-    {
-        time: 300000,
-        style: 'danger-light'
-    }
+    time: 300000,
+    style: 'danger-light'
 })
 
 const store = new Vuex.Store({
@@ -21,8 +18,7 @@ const store = new Vuex.Store({
         clickFromStoreUsingPlugin() {
             this.$notify('notification sent from store prototype function')
         }
-    },
-    // plugins: [NotificationVuexPlugin]
+    }
 })
 
 new Vue({
