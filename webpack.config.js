@@ -8,7 +8,7 @@ const prodMode = argv.mode == 'production'
 const devMode = argv.mode == 'development'
 
 module.exports = {
-    entry: devMode ? ['./src/index.js', './example/index.js'] : './src/index.js',
+    entry: devMode ? './example/index.js' : './src/index.js',
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'bundle.js',
