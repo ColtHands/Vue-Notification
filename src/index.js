@@ -27,11 +27,3 @@ export default {
         Vue.component('Notify', Vue.extend(Notify))
     }
 }
-
-// const NotificationVuexPlugin = (store) => {
-//     store.$notify = NotifyFn
-// }
-
-// export {
-//     NotificationVuexPlugin
-// }

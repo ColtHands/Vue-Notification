@@ -6,7 +6,7 @@ import App from './App.vue'
 Vue.use(Vuex)
 
 Vue.use(VueNotify, {
-    time: 300000,
+    timeout: 300000,
     style: 'danger-light'
 })
 

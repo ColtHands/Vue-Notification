@@ -7,7 +7,7 @@
 
 <script>
 import closeIcon from './closeIcon.vue'
-import { styleOptions } from './../availibleOptions.js'
+import { styleOptions } from '../availableOptions.js'
 
 export default {
     components: {

@@ -1,5 +1,6 @@
 import Vuex from 'vuex'
 import { mount, createLocalVue } from '@vue/test-utils'
+import availableOptions from './../src/availableOptions.js'
 import notificationMessage from './../src/components/notificationMessage.vue'
 import notifyStore from './../src/store.js'
 
@@ -19,6 +20,7 @@ describe('Testing single notificationMessage.vue component', () => {
     })
 
     test('notificationMessage has default classNames', () => {
+        console.log('wrapNotificationMessage.classes()', wrapNotificationMessage.classes())
         expect(wrapNotificationMessage.classes()).toContain('notification')
         expect(wrapNotificationMessage.classes()).toContain('notification_default')
     })
@@ -31,11 +33,13 @@ describe('Testing single notificationMessage.vue component', () => {
         expect(wrapNotificationMessage.classes()).toContain(`notification_${styleType}`)
     })
 
-    test('notificationMessage className dont have wrong notification_${styleType} modificator, that shouldnt exist', () => {
+    test('notificationMessage classNames dont have wrong class=".notification_${styleType}" modificator, that shouldnt exist', () => {
         const styleType = 'poop'
         const wrapNotificationMessage = mount(notificationMessage, {localVue, propsData: { styleType, message: '' }})
+        console.log('wrapNotificationMessage.classes()', wrapNotificationMessage.classes())
 
         expect(wrapNotificationMessage.classes()).toContain('notification')
+        expect(wrapNotificationMessage.classes()).toContain('notification_default')
         expect(wrapNotificationMessage.classes()).not.toContain(`notification_${styleType}`)
     })
 })

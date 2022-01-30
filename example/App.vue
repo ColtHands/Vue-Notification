@@ -49,8 +49,8 @@
 <script>
 export default {
     methods: {
-        clickHandle(position, style, time) {
-            this.$notify(`This notification appears at ${position} with ${style} style`, { time, position, style })
+        clickHandle(position, style, timeout) {
+            this.$notify(`This notification appears at ${position} with ${style} style`, { timeout, position, style })
         },
         callNotificationFromStore() {
             this.$store.dispatch('callNotificationFromStore')

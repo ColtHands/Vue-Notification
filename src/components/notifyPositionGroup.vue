@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { positionOptions } from './../availibleOptions.js'
+import { positionOptions } from '../availableOptions.js'
 
 // TODO add normal position class as notification message
 export default {

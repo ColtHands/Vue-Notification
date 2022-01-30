@@ -16,7 +16,7 @@ import VueNotify from 'v-notify'
 Vue.use(VueNotify, {
     position: 'top-center',
     style: 'info',
-    time: 3000
+    timeout: 3000
 })
 
 // On this stage you define your default options, you also can skip them
@@ -45,9 +45,9 @@ Vue.use(VueNotify)
 <script>
 export default {
     methods: {
-        notify(position, style, time) {
+        notify(position, style, timeout) {
             this.$notify('Hello world', {
-                time: 3000,
+                timeout: 3000,
                 position: 'top-center',
                 style: 'basic'
             })
@@ -123,7 +123,7 @@ new Vue({
      `'danger'` | `'dark'` | `'danger-light'`
 * NOTE: _Notification styles closely represent Bootstrap style naming for consistansy sake, their colors also something in between older and newer version of Bootstrap_
 
-### **time**
+### **timeout**
 * Type: `number`
 * Default: `3000`
 * Availible options: Any int

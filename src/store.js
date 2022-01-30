@@ -4,7 +4,12 @@ import {
     NOTIFY,
     REMOVE_NOTIFICATION_BY_ID
 } from './actionTypes.js'
-import { defaultStyle, defaultPosition } from './availibleOptions.js'
+
+import {
+    defaultStyle,
+    defaultPosition,
+    defaultTimeout
+} from './availableOptions.js'
 
 export default {
     state: {
@@ -12,7 +17,7 @@ export default {
         defaultOptions: {
             position: defaultPosition,
             style: defaultStyle,
-            time: 3000
+            timeout: defaultTimeout
         }
     },
     getters: {
@@ -30,28 +35,25 @@ export default {
             const {
                 position = defaultPosition,
                 style = defaultStyle,
-                time = 3000
+                timeout = defaultTimeout
             } = defaultOptions
             
             state.defaultOptions = {
                 position,
                 style,
-                time
+                timeout
             }
         }
     },
     actions: {
         [SET_DEFAULT_OPTIONS]({ commit }, defaultOptions) {
-            console.log(SET_DEFAULT_OPTIONS)
             commit('setDefaultOptions', defaultOptions)
         },
         [NOTIFY]({ commit, state, getters }, { message, options = {} }) {
-            console.log("NOTIFY", state, getters)
-
             const id = uuidV4()
 
             const {
-                time = state.defaultOptions.time,
+                timeout = state.defaultOptions.timeout,
                 position = state.defaultOptions.position,
                 style = state.defaultOptions.style
             } = options
@@ -60,7 +62,7 @@ export default {
 
             setTimeout(() => {
                 commit('removeNotificationById', id)
-            }, time || state.defaultOptions.time)
+            }, timeout || state.defaultOptions.timeout)
         },
         [REMOVE_NOTIFICATION_BY_ID]({ commit }, id) {
             commit('removeNotificationById', id)
