@@ -2,16 +2,16 @@
 
 ## Install the package
 
-`yarn add v-notify`
+`yarn add vue-notificationx`
 
 or
 
-`npm install v-notify`
+`npm install vue-notificationx`
 
 ## 1. Setup the package
 ```javascript
 import Vue from 'vue'
-import VueNotify from 'v-notify'
+import VueNotify from 'vue-notificationx'
 
 Vue.use(VueNotify, {
     position: 'top-center',
