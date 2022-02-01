@@ -134,7 +134,7 @@ new Vue({
 * User defined `Vue.prototype.$notify` name
 * Tests with all positions, styles, screen resolutions
 * Multiple style types: UIkit like / Material like
-* New settings: `name` for custom plugin name, `width`,
+* New settings: `name` for custom plugin name, `width`, default `z-index` setup
 
 _Currently, this pkg works correctly and I have 0 problems with it, but that doesn't mean you will have 0 problems as well._
 _Problem is this pkg is not tested, only manually._
