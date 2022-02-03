@@ -1,5 +1,7 @@
 <template>
     <div>
+        asd
+        {{notifyState}}
         <transition-group name="block" tag="div">
             <notifyPositionGroup
                 v-for="position in eachUniqueActivePosition"
@@ -23,27 +25,34 @@
 <script>
 import notificationMessage from './notificationMessage.vue'
 import notifyPositionGroup from './notifyPositionGroup.vue'
-import { REMOVE_NOTIFICATION_BY_ID } from "./../actionTypes.js"
+// import { REMOVE_NOTIFICATION_BY_ID } from "./../actionTypes.js"
+import { observer } from "mobx-vue";
 
-export default {
+export default observer({
     components: {
         notificationMessage,
         notifyPositionGroup
     },
     methods: {
         removeNotification(id) {
-            this.$notifyStore.dispatch(REMOVE_NOTIFICATION_BY_ID, id)
+            this.notifyState.REMOVE_NOTIFICATION_BY_ID(id)
         }
+    },
+    mounted() {
+        console.log('asd', this)
+        console.log('asd', this.notifyState)
+        // console.log('asd', this.notifyState.computed)
+        // console.log('asd', this.notifyState.eachUniqueActivePosition)
     },
     computed: {
         notifications() {
-            return this.$notifyStore.getters.notifications
+            return this.notifyState.getNotifications
         },
         eachUniqueActivePosition() {
-            return this.$notifyStore.getters.eachUniqueActivePosition
+            return this.notifyState.eachUniqueActivePosition
         }
     }
-}
+})
 </script>
 
 <style lang="sass" scoped>

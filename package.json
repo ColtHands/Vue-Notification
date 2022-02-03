@@ -30,6 +30,14 @@
     "presets": [
       "@babel/preset-env",
       "@vue/babel-preset-jsx"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
     ]
   },
   "jest": {
@@ -54,12 +62,13 @@
   },
   "scripts": {
     "start": "webpack serve --mode=development",
-    "build": "webpack --mode=production",
+    "build": "webpack --mode=production --stats",
     "test": "jest",
     "save": "yarn test && yarn build && git status && git add . && git commit -m save && git push"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
+    "@babel/plugin-proposal-decorators": "^7.17.0",
     "@babel/preset-env": "^7.16.5",
     "@babel/preset-flow": "^7.16.5",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
@@ -89,5 +98,10 @@
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.6.0",
     "yargs": "^17.3.0"
+  },
+  "dependencies": {
+    "mobx": "^6.3.13",
+    "mobx-vue": "^2.2.0",
+    "vue-class-component": "^7.2.6"
   }
 }

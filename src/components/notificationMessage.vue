@@ -31,7 +31,7 @@ export default {
             if(styleOptions.includes(this.$props.styleType)) {
                 return `notification_${this.$props.styleType}`
             } else {
-                return `notification_${this.$notifyStore.state.defaultOptions.style}`
+                // return `notification_${this.notifyState.defaultOptions.style}`
             }
         }
     }
