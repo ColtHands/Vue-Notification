@@ -27,8 +27,12 @@ import notificationMessage from './notificationMessage.vue'
 import notifyPositionGroup from './notifyPositionGroup.vue'
 // import { REMOVE_NOTIFICATION_BY_ID } from "./../actionTypes.js"
 import { observer } from "mobx-vue";
+import notifyStore from './../store.js'
 
 export default observer({
+    data: {
+        notifyState: new notifyStore()
+    },
     components: {
         notificationMessage,
         notifyPositionGroup

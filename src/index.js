@@ -8,7 +8,8 @@ import {
 } from './actionTypes.js'
 
 const NotifyFn = function(message, options) {
-    this.NOTIFY({ message, options })
+    console.log('Notify', Vue.extend(Notify))
+    Notify.notifyState.NOTIFY({ message, options })
 }
 
 export default {
@@ -23,12 +24,8 @@ export default {
         // storeInstance.dispatch(SET_DEFAULT_OPTIONS, options)
         
         // Vue.prototype.$notifyStore = storeInstance
-        Vue.prototype.$notify = NotifyFn
-        Vue.prototype.data = function() {
-            return {
-                notifyState: new notifyStore()
-            }
-        }
+        Vue.prototype.$notify = Vue.extend(Notify).notifyState.NOTIFY(message, options)
+        // Vue.prototype.data = new notifyStore()
 
         Vue.component('Notify', Vue.extend(Notify))
     }
