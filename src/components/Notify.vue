@@ -1,8 +1,9 @@
 <template>
     <div>
         asd
-        {{notifyState}}
-        <transition-group name="block" tag="div">
+        <br>
+        {{state}}
+        <!-- <transition-group name="block" tag="div">
             <notifyPositionGroup
                 v-for="position in eachUniqueActivePosition"
                 :key="position"
@@ -18,21 +19,15 @@
                     />
                 </transition-group>
             </notifyPositionGroup>
-        </transition-group>
+        </transition-group> -->
     </div>
 </template>
 
 <script>
 import notificationMessage from './notificationMessage.vue'
 import notifyPositionGroup from './notifyPositionGroup.vue'
-// import { REMOVE_NOTIFICATION_BY_ID } from "./../actionTypes.js"
-import { observer } from "mobx-vue";
-import notifyStore from './../store.js'
 
-export default observer({
-    data: {
-        notifyState: new notifyStore()
-    },
+export default {
     components: {
         notificationMessage,
         notifyPositionGroup
@@ -43,20 +38,24 @@ export default observer({
         }
     },
     mounted() {
-        console.log('asd', this)
-        console.log('asd', this.notifyState)
-        // console.log('asd', this.notifyState.computed)
-        // console.log('asd', this.notifyState.eachUniqueActivePosition)
-    },
-    computed: {
-        notifications() {
-            return this.notifyState.getNotifications
-        },
-        eachUniqueActivePosition() {
-            return this.notifyState.eachUniqueActivePosition
-        }
+        console.log('notify mounted', this)
+        console.log('notify mounted', this.data)
+        console.log('notify mounted', this.state)
+        console.log('forceUpdate', this.$forceUpdate)
+        // setInterval(() => {
+        //     console.log('notify mounted', this.state)
+        //     this.$forceUpdate()
+        // }, 1000)
     }
-})
+    // computed: {
+    //     notifications() {
+    //         return this.state.getNotifications
+    //     },
+    //     eachUniqueActivePosition() {
+    //         return this.state.eachUniqueActivePosition
+    //     }
+    // }
+}
 </script>
 
 <style lang="sass" scoped>

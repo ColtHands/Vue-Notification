@@ -4,14 +4,16 @@ import {
     NOTIFY,
     REMOVE_NOTIFICATION_BY_ID
 } from './actionTypes.js'
-
 import {
     defaultStyle,
     defaultPosition,
     defaultTimeout
 } from './availableOptions.js'
-
-import { action, computed, observable } from "mobx";
+import {
+    action,
+    computed,
+    observable
+} from "mobx"
 export default class NotifyStore {
     @observable notifications = []
     @observable defaultOptions = {
@@ -28,39 +30,11 @@ export default class NotifyStore {
         return [...new Set(this.getNotifications.map(e => e.position))]
     }
 
-    // @action.bound setAge() {
-    //     this.age++;
-    // }
-    
-    // @action.bound async fetchUsers() {
-    // 	this.users = await http.get('/users')
-    // }
-
-    // addNewNotification(state, notifiaction) {
-    //     state.notifications.push(notifiaction)
-    // },
-    // removeNotificationById(state, id) {
-    //     state.notifications = state.notifications.filter(e => e.id != id)
-    // },
-    // setDefaultOptions(state, defaultOptions = {}) {
-    //     const {
-    //         position = defaultPosition,
-    //         style = defaultStyle,
-    //         timeout = defaultTimeout
-    //     } = defaultOptions
-        
-    //     state.defaultOptions = {
-    //         position,
-    //         style,
-    //         timeout
-    //     }
-    // }
-
     @action.bound SET_DEFAULT_OPTIONS(defaultOptions) {
         this.defaultOptions = defaultOptions
     }
 
-    @action.bound NOTIFY({ message, options = {} }) {
+    @action.bound NOTIFY(message, options = {}) {
         console.log('NOTIFY', this)
         console.log('NOTIFY', message, options)
         const id = uuidV4()
@@ -72,6 +46,8 @@ export default class NotifyStore {
         } = options
 
         this.notifications.push({ message, id, position, style })
+
+        console.log('NOTIFY', 'this.notifications', this.notifications)
 
         setTimeout(() => {
             this.notifications = this.notifications.filter(e => e.id != id)
